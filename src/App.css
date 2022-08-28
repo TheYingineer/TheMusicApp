@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.ContentBox {
+  display: flex;
+  flex-direction: column;
+  /* border: 5px solid green; */
+  padding: 20px;
+}
+
+.ThreeCardsBox {
+  display: flex;
+  flex-direction: row;
+  /* border: 5px solid yellowgreen; */
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
