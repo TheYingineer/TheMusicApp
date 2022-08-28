@@ -7,6 +7,8 @@ import Select from './Select'
 export default function Dashboard() {
 
     const [online, setOnline] = useState(true)
+    const [volume, setVolume] = useState(30)
+    const [quality, setQuality] = useState(2)
 
     return (
         <div className="ContentBox">
@@ -22,15 +24,15 @@ export default function Dashboard() {
                     title="Master Volumne"
                     description="Overides all other sound settings in this application"
                     component={Slider}
-                    // state={online}
-                    // setState={setOnline}
+                    state={volume}
+                    setState={setVolume}
                 />
                 <CustomCard
                     title="Sound Quality"
                     description="Manually control the musci quality in event of poor connection"
                     component={Select}
-                    state={online}
-                    setState={setOnline}
+                    state={quality}
+                    setState={setQuality}
                 />
 
             </div>
@@ -38,6 +40,10 @@ export default function Dashboard() {
             <div>
                 <h4>System Notifications:</h4>
                 {!online && <p>Your application is offline. You won't be able to share or stream music to other devices</p>}
+                {quality < 2 && <p>Music quality is degraded. Increase quality if your connection allows it.</p>}
+                {volume >= 80 && <p>Listening to music at a high volume could cause long-term hearing loss.</p>}
+
+
             </div>
         </div>
     )
